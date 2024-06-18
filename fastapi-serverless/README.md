@@ -5,10 +5,10 @@ Code for my video tutorial [FastAPI serverless deployments on AWS](https://youtu
 
 To follow along with this tutorial, you'll need:
 
-1. An AWS account
-2. A Node.js runtime + npm (installation is platform-dependent, [check here](https://nodejs.org/en/download/package-manager))
-3. The AWS CLI. If you wish to make deployments with IAM Identity Center users, you'll need 
-   to install the AWS CLI v2. [Check here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) how to install the AWS CLI v2.
+1. An **AWS account**
+2. A **Node.js runtime + npm** (installation is platform-dependent, [check here](https://nodejs.org/en/download/package-manager))
+3. The **AWS CLI**. If you wish to make deployments with IAM Identity Center users, you'll need 
+   to install the **AWS CLI v2**. [Check here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) how to install the AWS CLI v2.
 
 The video shows how to make deployments using two strategies:
 1. With traditional IAM users
@@ -22,12 +22,16 @@ their access keys, and configure their profile with the AWS CLI.
 
 ## Install the serverless framework
 
+We'll use the serverless framework to make deployments. I recommend you install a version of serverless
+lower than v4. From v4 you're required to have an account on the serverless website, so to have less
+config work, I recommend a lower version. I use version 3.39.0.
+
 Create a folder for the application, and within that folder, run the following commands to install
 the serverless framework and the plugins we'll need:
 
 ```bash
-npm install serverless
-npm instll serverless-better-credentials
+npm install serverless@3.39.0
+npm install serverless-better-credentials
 npm install serverless-python-requirements
 ```
 
