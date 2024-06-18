@@ -1,5 +1,5 @@
 # Serverless deployments with FastAPI
-Code for my video tutorial [FastAPI serverless deployments on AWS](https://youtu.be/onrNfJ-qZao)
+Code for my video tutorial [FastAPI serverless deployments on AWS](https://youtu.be/CTcBLrR32NU)
 
 ## Prerequisites
 
