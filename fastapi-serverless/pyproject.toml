@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "fastapi-serverless"
+version = "0.1.0"
+description = "Examples of FastAPI middleware"
+authors = ["Jose Haro Peralta <jose@microapis.io>"]
+readme = "README.md"
+packages = [{include = "fastapi_middleware"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.2"
+uvicorn = "^0.29.0"
+mangum = "^0.17.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

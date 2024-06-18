@@ -1,0 +1,52 @@
+service: fastapi-serverless
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: python3.10
+  timeout: 30
+  region: eu-west-1
+  stage: ${opt:stage, "dev"}
+
+plugins:
+  - serverless-python-requirements
+  - serverless-better-credentials
+
+custom:
+  secrets: ${ssm:/aws/reference/secretsmanager/dev/fastapi-serverless}
+  pythonRequirements:
+    usePoetry: true
+    dockerizePip: true
+    dockerImage: public.ecr.aws/sam/build-python3.10:latest
+    slim: true
+    layer:
+      name: fastapi-backend-requirements-layer
+      description: Backend FastAPI serverless requirements layer
+      compatibleRuntimes:
+        - python3.10
+
+functions:
+  app:
+    package:
+      patterns:
+        - "*.py"
+        - "poetry.lock"
+        - "pyproject.toml"
+        - "!package.json"
+        - "!package-lock.json"
+        - "!.serverless/**"
+        - "!node_modules/**"
+        - "!venv/**"
+        - "!data/**"
+
+    handler: server.handler
+    environment:
+      ENV_VARIABLE: ${self:custom.secrets.ENV_VARIABLE}
+    layers:
+      - { Ref: PythonRequirementsLambdaLayer }
+    events:
+      - http:
+          method: any
+          path: /{proxy+}
