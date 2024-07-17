@@ -7,8 +7,6 @@ payload = {
     "grant_type": "client_credentials",
 }
 
-response = requests.post(
-    "https://microapis-test.eu.auth0.com/oauth/token", json=payload
-)
+response = requests.post("<token_endpoint>", json=payload)
 
 print(response.json())
