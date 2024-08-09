@@ -1,5 +1,5 @@
-# FastAPI Docker tutorial
-Code for my video tutorial [Run applications in Docker](https://youtu.be/mNpG1zg1QFc)
+# Deploy with Render.com tutorial
+Code for my video tutorial [Deploy with Render.com tutorial](https://youtu.be/nOP8khZhjhk)
 
 ## Run the code
 
@@ -16,50 +16,11 @@ uvicorn server:server --reload
 
 - Check the API docs at http://localhost:8000/docs
 
-3. Build the image
-```bash
-docker build -t orders:v1.0.0 . 
-```
-
-4. Run the container
-```bash
-docker run -it -p 8000:8000 orders:v1.0.0 
-```
-
-5. Run in the background
-```bash
-docker run -it -p 8000:8000 -d orders:v1.0.0  
-```
-
-6. Check running containers
-```bash
-docker ps 
-```
-
-7. List all containers, running and stopped
-```bash
-docker ps -a 
-```
-
-8. List images
-```bash
-docker image ls 
-```
-
-9. Stop a docker container
-```bash
-docker stop <container_id> 
-```
-
-10. Step inside the container
-```bash
-docker exec -it <container_id> /bash
-```
 
 ## The project
-In this video, I show you how to dockerize a FastAPI application. We use a very simple FastAPI application
-as an example, and go through the process of writing a Dockerfile for the application, building the image,
-and running a container off that image.
+In this video, I show you how to deploy a simple FastAPI application to Render.com. The application represents a 
+very simple orders API with a small database. When running locally, the database is a SQLite database, while on 
+Render.com we connect the application to a PostgreSQL database.
 
 ## What is FastAPI?
 FastAPI is a high-performant REST API framework for Python. 
@@ -72,14 +33,10 @@ Check out FastAPI's GitHub [repository](https://github.com/tiangolo/fastapi)
 and give it a star! Also make sure to check out its excellent 
 [documentation](https://fastapi.tiangolo.com/) online.
 
-## What is Docker?
-Docker is a virtualization technology that allows you to build lightweight images. Docker shares the kernel with 
-the host machine instead of running its own kernel as traditional virtual machines do. Docker images can be run on 
-any platform that has a Docker engine, which allows us to replicate the same environment in production and in local.
-The process that runs off a Docker image is called a container.
-
-* Check out the official [Docker docs](https://docs.docker.com/)
-* Check out how to install Docker in your platform: [installation guide](https://www.docker.com/)
+## What Render.com?
+Render is a fully managed cloud platform. To make deployments to Render, you connect your GitHub repository to a 
+Render application, and on every push to the main branch, it auto-deploys. Simply provide configuration for how to 
+build and run the application, and create a database if needed. In this tutorial, we go through all those steps.
 
 ## Want to learn more about API development?
 
