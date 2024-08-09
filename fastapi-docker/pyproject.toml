@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "fastapi-docker"
+version = "0.1.0"
+description = "Example of running FastAPI with Docker"
+authors = ["Jose Haro Peralta <jose@microapis.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.2"
+uvicorn = "^0.29.0"
+sqlalchemy = "^2.0.31"
+psycopg = "^3.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
